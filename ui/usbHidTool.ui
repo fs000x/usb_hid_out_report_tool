@@ -6,93 +6,851 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1121</width>
+    <height>461</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QComboBox" name="comboBox_hid_devices">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>771</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_input">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>641</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_output_hex">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>360</y>
-      <width>461</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_output_str">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>360</y>
-      <width>291</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="readOnly">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_send">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>140</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Send</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_Open">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>70</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Open</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_30" stretch="1,0">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QComboBox" name="comboBox_hid_devices"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>VID</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_vid">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Vendor Name </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_vname">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>PID</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_pid">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Product Name</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_pname">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Serial Number</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_sn"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QPushButton" name="pushButton_refresh">
+            <property name="text">
+             <string>Refresh</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_copy_path">
+            <property name="text">
+             <string>Copy Device Path</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_Open">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16000000</width>
+            <height>16000000</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Open</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_one_cmd">
+       <attribute name="title">
+        <string>Command Send</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLineEdit" name="lineEdit_input"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="1,0,0,0">
+            <item>
+             <layout class="QFormLayout" name="formLayout">
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="checkBox_hex">
+                <property name="text">
+                 <string>HEX Send   </string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_27">
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Report ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_report_id"/>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="checkBox">
+                <property name="text">
+                 <string>Timer Send</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <layout class="QHBoxLayout" name="horizontalLayout_28">
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Time(ms)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit_time"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_send">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="text">
+               <string>Send</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_more_cmd">
+       <attribute name="title">
+        <string>More Commands</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_29">
+            <property name="spacing">
+             <number>7</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_1">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_1">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>3</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>4</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_14">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_16">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_17">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_8">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_8">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_31">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_9">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_9">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>9</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_10">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_10">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_20">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_11">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_11">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>11</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_21">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_12">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_12">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>12</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_22">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_13">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_13">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>13</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_23">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_14">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_14">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>14</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_24">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_15">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_15">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_25">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_ex_16">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_ex_16">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>16</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,1">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTextEdit" name="textEdit_output_hex">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="textEdit_output_str">
+        <property name="inputMethodHints">
+         <set>Qt::ImhNone</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1121</width>
      <height>26</height>
     </rect>
    </property>
@@ -102,30 +860,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>comboBox_hid_devices</sender>
-   <signal>activated(QString)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>hid_devices_actived()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>161</x>
-     <y>76</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>266</x>
-     <y>100</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>pushButton_send</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>data_send()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>714</x>
-     <y>178</y>
+     <x>555</x>
+     <y>257</y>
     </hint>
     <hint type="destinationlabel">
      <x>713</x>
@@ -140,12 +882,92 @@
    <slot>hid_dev_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>747</x>
-     <y>115</y>
+     <x>1107</x>
+     <y>112</y>
     </hint>
     <hint type="destinationlabel">
      <x>785</x>
      <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_hid_devices</sender>
+   <signal>activated(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hid_devices_actived()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>174</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_refresh</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hid_dev_refresh()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>927</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>949</x>
+     <y>30</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_copy_path</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>copy_dev_path()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1062</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1113</x>
+     <y>59</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_hex</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hex_send_toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>8</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>timer_send_toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>38</x>
+     <y>270</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>6</x>
+     <y>275</y>
     </hint>
    </hints>
   </connection>
@@ -154,5 +976,9 @@
   <slot>hid_devices_actived()</slot>
   <slot>data_send()</slot>
   <slot>hid_dev_open()</slot>
+  <slot>hid_dev_refresh()</slot>
+  <slot>copy_dev_path()</slot>
+  <slot>hex_send_toggle()</slot>
+  <slot>timer_send_toggle()</slot>
  </slots>
 </ui>
