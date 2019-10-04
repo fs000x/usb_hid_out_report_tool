@@ -70,8 +70,12 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
     def hid_dev_refresh(self):
         self._refresh_hid_dev()
 
-    def copy_dev_path(self):
+    def copy_dev_path_pressed(self):
         clip.copy(self.comboBox_hid_devices.currentText())
+        self.pushButton_copy_path.setText("Device Path Copyed")
+
+    def copy_dev_path_released(self):
+        self.pushButton_copy_path.setText("Copy Device Path")
 
     def hex_send_toggle(self, isHexSend):
         print(isHexSend)

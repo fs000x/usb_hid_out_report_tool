@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1121</width>
+    <width>868</width>
     <height>461</height>
    </rect>
   </property>
@@ -121,7 +121,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_sn"/>
+           <widget class="QLineEdit" name="lineEdit_sn">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -133,6 +137,12 @@
          <layout class="QHBoxLayout" name="horizontalLayout_9">
           <item>
            <widget class="QPushButton" name="pushButton_refresh">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>Refresh</string>
             </property>
@@ -140,6 +150,12 @@
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_copy_path">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="text">
              <string>Copy Device Path</string>
             </property>
@@ -230,7 +246,7 @@
                </layout>
               </item>
               <item row="1" column="0">
-               <widget class="QCheckBox" name="checkBox">
+               <widget class="QCheckBox" name="checkBox_timer">
                 <property name="text">
                  <string>Timer Send</string>
                 </property>
@@ -850,7 +866,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1121</width>
+     <width>868</width>
      <height>26</height>
     </rect>
    </property>
@@ -870,7 +886,7 @@
      <y>257</y>
     </hint>
     <hint type="destinationlabel">
-     <x>713</x>
+     <x>583</x>
      <y>212</y>
     </hint>
    </hints>
@@ -882,11 +898,11 @@
    <slot>hid_dev_open()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1107</x>
+     <x>664</x>
      <y>112</y>
     </hint>
     <hint type="destinationlabel">
-     <x>785</x>
+     <x>583</x>
      <y>90</y>
     </hint>
    </hints>
@@ -914,27 +930,27 @@
    <slot>hid_dev_refresh()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>927</x>
+     <x>665</x>
      <y>53</y>
     </hint>
     <hint type="destinationlabel">
-     <x>949</x>
+     <x>583</x>
      <y>30</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>pushButton_copy_path</sender>
-   <signal>clicked()</signal>
+   <signal>released()</signal>
    <receiver>MainWindow</receiver>
-   <slot>copy_dev_path()</slot>
+   <slot>copy_dev_path_released()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>1062</x>
+     <x>765</x>
      <y>54</y>
     </hint>
     <hint type="destinationlabel">
-     <x>1113</x>
+     <x>583</x>
      <y>59</y>
     </hint>
    </hints>
@@ -956,7 +972,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>checkBox</sender>
+   <sender>checkBox_timer</sender>
    <signal>toggled(bool)</signal>
    <receiver>MainWindow</receiver>
    <slot>timer_send_toggle()</slot>
@@ -971,14 +987,31 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_copy_path</sender>
+   <signal>pressed()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>copy_dev_path_pressed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>831</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>859</x>
+     <y>49</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>hid_devices_actived()</slot>
   <slot>data_send()</slot>
   <slot>hid_dev_open()</slot>
   <slot>hid_dev_refresh()</slot>
-  <slot>copy_dev_path()</slot>
+  <slot>copy_dev_path_pressed()</slot>
   <slot>hex_send_toggle()</slot>
   <slot>timer_send_toggle()</slot>
+  <slot>copy_dev_path_released()</slot>
  </slots>
 </ui>
