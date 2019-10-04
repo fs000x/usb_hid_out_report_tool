@@ -47,7 +47,7 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         try:
             report = self.hid_dev.find_output_reports()[output_reports_index]
             self.report_id = report.report_id
-            self.lineEdit_report_id.setText(hex(self.report_id))
+            self.lineEdit_report_id.setText("0x%02x" % self.report_id)
             self.output_report_len = self.hid_dev.hid_caps.output_report_byte_length
             self.usage_id = list(report.keys())[output_reports_index]
         except IndexError:
