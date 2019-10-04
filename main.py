@@ -3,6 +3,7 @@
 
 import sys, time
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PyQt5 import QtCore, QtGui
 import pywinusb.hid as hid
 from ui.usbHidTool import Ui_MainWindow
 import pyperclip as clip
@@ -22,6 +23,7 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.usage_id = 0
         self.pushButton_send.setEnabled(False)
         self.pushButton_refresh.setEnabled(True)
+        self.checkBox_timer.setEnabled(False)
         self._refresh_hid_dev()
 
     def _decode_data(self, data):
@@ -48,8 +50,11 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
             self.lineEdit_report_id.setText(hex(self.report_id))
             self.output_report_len = self.hid_dev.hid_caps.output_report_byte_length
             self.usage_id = list(report.keys())[output_reports_index]
+        except IndexError:
+            self.pushButton_Open.click()
+            self._show_err("Device Not Have Output Report")
         except Exception as err:
-            print(err)
+            self._show_err(str(err))
 
     def _clear_hid_dev_report_info(self):
         self.report_id = None
@@ -78,13 +83,31 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_copy_path.setText("Copy Device Path")
 
     def hex_send_toggle(self, isHexSend):
-        print(isHexSend)
+        data_str = self.lineEdit_input.text()
+        if isHexSend:
+            data_list = [int(ord(d)) for d in list(data_str)]
+            self.lineEdit_input.setText(' '.join(map(lambda x: "%02x" % x, data_list)))
+            hex_regex = QtCore.QRegExp("[a-fA-F0-9 ]*")
+            hex_validator = QtGui.QRegExpValidator(hex_regex, self.lineEdit_input)
+            self.lineEdit_input.setValidator(hex_validator)
+        else:
+            cmd_regex = QtCore.QRegExp(".*")
+            cmd_validator = QtGui.QRegExpValidator(cmd_regex, self.lineEdit_input)
+            self.lineEdit_input.setValidator(cmd_validator)
+            try:
+                data_list = list(bytearray.fromhex(data_str))
+                self.lineEdit_input.setText(''.join(map(self._decode_data, data_list)))
+            except Exception:
+                self._show_err("Command Format Error")
+                #self.checkBox_hex.setCheckState(2)
+                self.checkBox_hex.setChecked(False)
+                return
+
 
     def timer_send_toggle(self, timerStart):
         print(timerStart)
 
     def hid_devices_actived(self, item):
-        #print(item)
         self.current_dev = self.comboBox_hid_devices.currentIndex()
         self.hid_dev = self.all_hids[self.current_dev]
         self._set_hid_dev_info()
@@ -94,6 +117,7 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
             self.hid_dev.close()
             self.pushButton_Open.setText("Open")
             self.pushButton_send.setEnabled(False)
+            self.checkBox_timer.setEnabled(False)
             self.comboBox_hid_devices.setEnabled(True)
             self.pushButton_refresh.setEnabled(True)
             self._clear_hid_dev_report_info()
@@ -102,6 +126,7 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
             self.hid_dev.set_raw_data_handler(self.report_recv_handler)
             self.pushButton_Open.setText("Close")
             self.pushButton_send.setEnabled(True)
+            self.checkBox_timer.setEnabled(True)
             self.comboBox_hid_devices.setEnabled(False)
             self.pushButton_refresh.setEnabled(False)
             self._set_hid_dev_report_info()
@@ -115,14 +140,20 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         else:
             try:
                 data_list = list(bytearray.fromhex(data_str))
-            except Exception as err:
-                self._show_err(str(err))
+            except Exception:
+                self._show_err("Command Format Error")
                 return
+
         #print(data_list)
+        if len(data_list) > self.output_report_len-1:
+            self._show_err("Command Len Too Long, report Len is %s" % self.output_report_len)
+            return
+
         data[0] = self.report_id
         for i, d in enumerate(data_list):
             data[i+1] = d
         self.hid_dev.send_output_report(data)
+
         time_str = time.strftime("%H:%M:%S", time.localtime())
         data_send_str = ''.join(map(self._decode_data, data[:len(data_list)+1]))
         tmp_str = "{} Send: {}".format(time_str, data_send_str[1:])
