@@ -24,7 +24,22 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_send.setEnabled(False)
         self.pushButton_refresh.setEnabled(True)
         self.checkBox_timer.setEnabled(False)
+        self._pushButton_ex_init()
+        self._pushButton_ex_disable()
         self._refresh_hid_dev()
+
+    def _pushButton_ex_init(self):
+        for i in range(1, 17):
+            exec("self.pushButton_ex_{}.pressed.connect(self.button_pressed_ex_{})".format(i, i))
+
+
+    def _pushButton_ex_disable(self):
+        for i in range(1, 17):
+            exec("self.pushButton_ex_{}.setEnabled(False)".format(i))
+
+    def _pushButton_ex_enable(self):
+        for i in range(1, 17):
+            exec("self.pushButton_ex_{}.setEnabled(True)".format(i))
 
     def _decode_data(self, data):
         return chr(data)
@@ -72,12 +87,31 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.target_usage = hid.get_full_usage_id(0xff00, 0x02)
         self._set_hid_dev_info()
 
+    def _report_data_send(self, data_list):
+        #print(data_list)
+        if len(data_list) > self.output_report_len-1:
+            self._show_err("Command Len Too Long, report Len is %s" % self.output_report_len)
+            return
+
+        data = [0x00] * self.output_report_len
+        data[0] = self.report_id
+        for i, d in enumerate(data_list):
+            data[i+1] = d
+        self.hid_dev.send_output_report(data)
+
+        time_str = time.strftime("%H:%M:%S", time.localtime())
+        data_send_str = ''.join(map(self._decode_data, data[:len(data_list)+1]))
+        tmp_str = "{} Send: {}".format(time_str, data_send_str[1:])
+        tmp_hex_str = "{} Send: {}".format(time_str, ' '.join(map(lambda x: "%02x" % x, data)))
+        self.textEdit_output_hex.append(tmp_hex_str)
+        self.textEdit_output_str.append(tmp_str)
+
     def hid_dev_refresh(self):
         self._refresh_hid_dev()
 
     def copy_dev_path_pressed(self):
         clip.copy(self.comboBox_hid_devices.currentText())
-        self.pushButton_copy_path.setText("Device Path Copyed")
+        self.pushButton_copy_path.setText("Device Path Copy")
 
     def copy_dev_path_released(self):
         self.pushButton_copy_path.setText("Copy Device Path")
@@ -120,6 +154,7 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
             self.checkBox_timer.setEnabled(False)
             self.comboBox_hid_devices.setEnabled(True)
             self.pushButton_refresh.setEnabled(True)
+            self._pushButton_ex_disable()
             self._clear_hid_dev_report_info()
         else:
             self.hid_dev.open()
@@ -129,12 +164,14 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
             self.checkBox_timer.setEnabled(True)
             self.comboBox_hid_devices.setEnabled(False)
             self.pushButton_refresh.setEnabled(False)
+            self._pushButton_ex_enable()
             self._set_hid_dev_report_info()
 
     def data_send(self):
         data_str = self.lineEdit_input.text()
+        if len(data_str) == 0:
+            return
         #print(data_str)
-        data = [0x00] * self.output_report_len
         if not self.checkBox_hex.isChecked():
             data_list = [int(ord(d)) for d in list(data_str)]
         else:
@@ -143,23 +180,54 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
             except Exception:
                 self._show_err("Command Format Error")
                 return
+        self._report_data_send(data_list)
 
-        #print(data_list)
-        if len(data_list) > self.output_report_len-1:
-            self._show_err("Command Len Too Long, report Len is %s" % self.output_report_len)
+    def more_command_send(self, text):
+        if len(text) == 0:
             return
+        data_str = text
+        if not self.checkBox_hex.isChecked():
+            data_list = [int(ord(d)) for d in list(data_str)]
+        else:
+            try:
+                data_list = list(bytearray.fromhex(data_str))
+            except Exception:
+                self._show_err("Command Format Error")
+                return
+        self._report_data_send(data_list)
 
-        data[0] = self.report_id
-        for i, d in enumerate(data_list):
-            data[i+1] = d
-        self.hid_dev.send_output_report(data)
-
-        time_str = time.strftime("%H:%M:%S", time.localtime())
-        data_send_str = ''.join(map(self._decode_data, data[:len(data_list)+1]))
-        tmp_str = "{} Send: {}".format(time_str, data_send_str[1:])
-        tmp_hex_str = "{} Send: {}".format(time_str, ' '.join(map(lambda x: "%02x" % x, data)))
-        self.textEdit_output_hex.append(tmp_hex_str)
-        self.textEdit_output_str.append(tmp_str)
+    def button_pressed_ex_1(self):
+        self.more_command_send(self.lineEdit_ex_1.text())
+    def button_pressed_ex_2(self):
+        self.more_command_send(self.lineEdit_ex_2.text())
+    def button_pressed_ex_3(self):
+        self.more_command_send(self.lineEdit_ex_3.text())
+    def button_pressed_ex_4(self):
+        self.more_command_send(self.lineEdit_ex_4.text())
+    def button_pressed_ex_5(self):
+        self.more_command_send(self.lineEdit_ex_5.text())
+    def button_pressed_ex_6(self):
+        self.more_command_send(self.lineEdit_ex_6.text())
+    def button_pressed_ex_7(self):
+        self.more_command_send(self.lineEdit_ex_7.text())
+    def button_pressed_ex_8(self):
+        self.more_command_send(self.lineEdit_ex_8.text())
+    def button_pressed_ex_9(self):
+        self.more_command_send(self.lineEdit_ex_9.text())
+    def button_pressed_ex_10(self):
+        self.more_command_send(self.lineEdit_ex_10.text())
+    def button_pressed_ex_11(self):
+        self.more_command_send(self.lineEdit_ex_11.text())
+    def button_pressed_ex_12(self):
+        self.more_command_send(self.lineEdit_ex_12.text())
+    def button_pressed_ex_13(self):
+        self.more_command_send(self.lineEdit_ex_13.text())
+    def button_pressed_ex_14(self):
+        self.more_command_send(self.lineEdit_ex_14.text())
+    def button_pressed_ex_15(self):
+        self.more_command_send(self.lineEdit_ex_15.text())
+    def button_pressed_ex_16(self):
+        self.more_command_send(self.lineEdit_ex_16.text())
 
     def report_recv_handler(self, data):
         time_str = time.strftime("%H:%M:%S", time.localtime())

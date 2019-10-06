@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>868</width>
+    <width>889</width>
     <height>461</height>
    </rect>
   </property>
@@ -202,7 +202,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -344,7 +344,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <property name="sizeConstraint">
-           <enum>QLayout::SetMinimumSize</enum>
+           <enum>QLayout::SetDefaultConstraint</enum>
           </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_29">
@@ -352,30 +352,48 @@
              <number>7</number>
             </property>
             <property name="sizeConstraint">
-             <enum>QLayout::SetMinimumSize</enum>
+             <enum>QLayout::SetDefaultConstraint</enum>
             </property>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_10">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_1">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_1">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>1</string>
@@ -387,25 +405,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_11">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_2">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_2">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>2</string>
@@ -417,25 +453,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_12">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_3">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_3">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>3</string>
@@ -447,25 +501,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_13">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_4">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_4">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>4</string>
@@ -477,25 +549,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_14">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_5">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_5">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>5</string>
@@ -507,25 +597,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_15">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_6">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>6</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_6">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>6</string>
@@ -537,25 +645,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_16">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_7">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_7">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>7</string>
@@ -567,25 +693,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_17">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_8">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_8">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>8</string>
@@ -599,30 +743,48 @@
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_31">
             <property name="sizeConstraint">
-             <enum>QLayout::SetMinimumSize</enum>
+             <enum>QLayout::SetDefaultConstraint</enum>
             </property>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_18">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_9">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_9">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>9</string>
@@ -634,25 +796,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_19">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_10">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_10">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>10</string>
@@ -664,25 +844,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_20">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_11">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_11">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>11</string>
@@ -694,25 +892,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_21">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_12">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_12">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>12</string>
@@ -724,25 +940,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_22">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_13">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_13">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>13</string>
@@ -754,25 +988,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_23">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_14">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_14">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>14</string>
@@ -784,25 +1036,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_24">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_15">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_15">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>15</string>
@@ -814,25 +1084,43 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_25">
               <property name="sizeConstraint">
-               <enum>QLayout::SetMinimumSize</enum>
+               <enum>QLayout::SetDefaultConstraint</enum>
               </property>
               <item>
                <widget class="QLineEdit" name="lineEdit_ex_16">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>28</height>
+                 </size>
+                </property>
+                <property name="baseSize">
+                 <size>
+                  <width>80</width>
+                  <height>28</height>
+                 </size>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pushButton_ex_16">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>30</width>
+                  <height>28</height>
+                 </size>
                 </property>
                 <property name="text">
                  <string>16</string>
@@ -883,7 +1171,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>868</width>
+     <width>889</width>
      <height>26</height>
     </rect>
    </property>
