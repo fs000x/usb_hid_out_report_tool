@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys, time
+import sys, time, threading
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5 import QtCore, QtGui
 import pywinusb.hid as hid
@@ -21,11 +21,16 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.output_report_len = 0
         self.target_usage = 0
         self.usage_id = 0
+        self.timer_thread = None
         self.pushButton_send.setEnabled(False)
         self.pushButton_refresh.setEnabled(True)
         self.checkBox_timer.setEnabled(False)
         self._pushButton_ex_init()
         self._pushButton_ex_disable()
+        time_regex = QtCore.QRegExp("[0-9]*")
+        time_validator = QtGui.QRegExpValidator(time_regex, self.lineEdit_time)
+        self.lineEdit_time.setValidator(time_validator)
+        self.lineEdit_time.setMaxLength(9)
         self._refresh_hid_dev()
 
     def _pushButton_ex_init(self):
@@ -137,9 +142,30 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
                 self.checkBox_hex.setChecked(False)
                 return
 
+    def _timer_run(self, timeInterval):
+        while self.checkBox_timer.isChecked():
+            #print(timeInterval/1000)
+            self.data_send()
+            time.sleep(timeInterval/1000)
 
     def timer_send_toggle(self, timerStart):
-        print(timerStart)
+        #print("timerStart"+str(timerStart))
+        #print(self.timer_thread)
+        #print(threading.enumerate())
+        #print(threading.activeCount())
+        if timerStart:
+            if len(self.lineEdit_time.text()) == 0:
+                self._show_err("Time(ms) must be set")
+                self.checkBox_timer.setChecked(False)
+                return
+            timeInterval = int(self.lineEdit_time.text())
+            self.timer_thread = threading.Thread(target=self._timer_run, name="timer_loop", args=(timeInterval,))
+            self.timer_thread.start()
+        elif self.timer_thread and self.timer_thread.isAlive:
+            #print("stop thread")
+            self.timer_thread = None
+
+
 
     def hid_devices_actived(self, item):
         self.current_dev = self.comboBox_hid_devices.currentIndex()
@@ -148,6 +174,7 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
 
     def hid_dev_open(self):
         if self.hid_dev.is_opened():
+            self.checkBox_timer.setChecked(False)
             self.hid_dev.close()
             self.pushButton_Open.setText("Open")
             self.pushButton_send.setEnabled(False)
