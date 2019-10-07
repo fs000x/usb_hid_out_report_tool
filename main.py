@@ -7,7 +7,9 @@ from PyQt5 import QtCore, QtGui
 import pywinusb.hid as hid
 from ui.usbHidTool import Ui_MainWindow
 import pyperclip as clip
+import configparser as cfgpar
 
+config_file = "tool.conf"
 output_reports_index = 0
 
 class usbHidToolWindow(QMainWindow, Ui_MainWindow):
@@ -22,10 +24,13 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.target_usage = 0
         self.usage_id = 0
         self.timer_thread = None
+        self.cfg = None
+        self.cfg_file = None
+        self._config_init()
         self.pushButton_send.setEnabled(False)
         self.pushButton_refresh.setEnabled(True)
         self.checkBox_timer.setEnabled(False)
-        self._pushButton_ex_init()
+        self._pushButton_ex_init(self.cfg)
         self._pushButton_ex_disable()
         time_regex = QtCore.QRegExp("[0-9]*")
         time_validator = QtGui.QRegExpValidator(time_regex, self.lineEdit_time)
@@ -33,7 +38,48 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         self.lineEdit_time.setMaxLength(9)
         self._refresh_hid_dev()
 
-    def _pushButton_ex_init(self):
+    def __del__(self):
+        if self.hid_dev.is_opened():
+            self.checkBox_timer.setChecked(False)
+            self.hid_dev.close()
+        self._config_write()
+
+    def _config_init(self):
+        self.cfg = cfgpar.ConfigParser()
+        try:
+            self.cfg.read(config_file)
+            if not self.cfg.has_section("more_commands"):
+                self.cfg.add_section("more_commands")
+        except Exception as err:
+            print(err)
+
+        self.cfg_file = open(config_file, 'w')
+
+    def _config_get(self, section, key):
+        try:
+            return self.cfg.get(section, key)
+        except Exception as err:
+            print(err)
+            return ""
+
+    def _config_write(self):
+        if self.cfg:
+            for i in range(1, 17):
+                exec("self.tmp_cmd = self.lineEdit_ex_{}.text()".format(i))
+                self.cfg.set("more_commands", "cmd_ex_{}".format(i), self.tmp_cmd)
+            if self.cfg_file:
+                self.cfg.write(self.cfg_file)
+                self.cfg_file.close()
+
+
+    def _pushButton_ex_init(self, cfg):
+        try:
+            for i in range(1, 17):
+                cmd_str = self._config_get("more_commands", "cmd_ex_{}".format(i))
+                exec("self.lineEdit_ex_{}.setText(cmd_str)".format(i))
+        except Exception as err:
+            print(err)
+
         for i in range(1, 17):
             exec("self.pushButton_ex_{}.pressed.connect(self.button_pressed_ex_{})".format(i, i))
 
