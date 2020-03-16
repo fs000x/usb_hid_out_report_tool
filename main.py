@@ -307,7 +307,9 @@ class usbHidToolWindow(QMainWindow, Ui_MainWindow):
         data_str = "{} Recv: {}".format(time_str, ''.join(map(self._decode_data, data[1:])))
         data_hex_str = "{} Recv: {}".format(time_str, ' '.join(map(lambda x: "%02x" % x, data)))
         self.textEdit_output_str.append(data_str)
+        self.textEdit_output_str.moveCursor(self.textEdit_output_str.textCursor().End)
         self.textEdit_output_hex.append(data_hex_str)
+        self.textEdit_output_hex.moveCursor(self.textEdit_output_hex.textCursor().End)
 
 
 if __name__ == "__main__":
